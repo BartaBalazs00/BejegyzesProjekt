@@ -97,18 +97,19 @@ public class Main {
         System.out.println("\nD feladat");
 
         Bejegyzes csereBejegyzes = new Bejegyzes("","");
-/*
-        Arrays.sort(bejegyzesLista, new Comparator<>());
+
+
+
         for (int i = 0; i < bejegyzesLista.size()-1; i++) {
             for (int j = i+1; j < bejegyzesLista.size(); j++) {
                 if(bejegyzesLista.get(j).getLikeok()>bejegyzesLista.get(i).getLikeok()){
                     csereBejegyzes = bejegyzesLista.get(j);
-                    bejegyzesLista.get(j) = bejegyzesLista.get(i);
-                    bejegyzesLista.get(i) = csereBejegyzes;
+                    bejegyzesLista.set(j,  bejegyzesLista.get(i));
+                    bejegyzesLista.set(i, csereBejegyzes) ;
                 }
             }
         }
-*/
+
         FajlKiIras("bejegyzesek_rendezett.txt");
     }
     public static void FajlBeOlvas(String fajlNev){
@@ -134,7 +135,7 @@ public class Main {
         PrintWriter writer = new PrintWriter(fajlNev, "UTF-8");
         for (Bejegyzes bejegyzes: bejegyzesLista
              ) {
-            writer.println(bejegyzes);
+            writer.println(bejegyzes+"\n");
         }
         writer.close();
     }
