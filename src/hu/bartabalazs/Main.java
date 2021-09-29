@@ -49,12 +49,14 @@ public class Main {
         String tartalom = sc.next();
         bejegyzesLista.get(1).setTartalom(tartalom);
 
-        for (int i = 0; i < bejegyzesLista.size(); i++) {
-            System.out.println(bejegyzesLista.get(i));
+        for (Bejegyzes value : bejegyzesLista) {
+            System.out.println(value+"\n");
         }
+
 
         //3. feladat
         //A
+        System.out.println("\nA feladat");
         int legNepszerubbBejegyzesLikeokSzama = bejegyzesLista.get(0).getLikeok();
 
         for (int i = 1; i < bejegyzesLista.size(); i++) {
@@ -66,7 +68,9 @@ public class Main {
         System.out.println("A legnépszerűbb bejegyzés likeainak a száma: "+legNepszerubbBejegyzesLikeokSzama);
 
 
+
         //B
+        System.out.println("\nB feladat");
         boolean vanBenne = false;
         int index = 0;
         while (!vanBenne && (index != bejegyzesLista.size())){
@@ -81,6 +85,20 @@ public class Main {
             System.out.println("Nincs benne bejegyzés ami 35 likenál többet kapott!");
         }
 
+
+
+        //C
+        System.out.println("\nC feladat");
+        int kevesebbMintTizenotDb = 0;
+        for (Bejegyzes bejegyzes : bejegyzesLista) {
+            if (bejegyzes.getLikeok() < 15) {
+                kevesebbMintTizenotDb++;
+            }
+        }
+        System.out.println(kevesebbMintTizenotDb +" db bejegyzés kapott kevesebb mint 15 likeot");
+
+
+        
 
     }
     public static void FajlBeOlvas(String fajlNev){
