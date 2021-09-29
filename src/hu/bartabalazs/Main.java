@@ -66,6 +66,20 @@ public class Main {
         System.out.println("A legnépszerűbb bejegyzés likeainak a száma: "+legNepszerubbBejegyzesLikeokSzama);
 
 
+        //B
+        boolean vanBenne = false;
+        int index = 0;
+        while (!vanBenne && (index != bejegyzesLista.size())){
+            if(bejegyzesLista.get(index).getLikeok()>35){
+                vanBenne = true;
+            }
+            index++;
+        }
+        if(vanBenne){
+            System.out.println("van benne bejegyzés ami 35 likenál többet kapott!");
+        } else {
+            System.out.println("Nincs benne bejegyzés ami 35 likenál többet kapott!");
+        }
 
 
     }
