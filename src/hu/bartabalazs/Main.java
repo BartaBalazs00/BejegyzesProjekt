@@ -52,6 +52,22 @@ public class Main {
         for (int i = 0; i < bejegyzesLista.size(); i++) {
             System.out.println(bejegyzesLista.get(i));
         }
+
+        //3. feladat
+        //A
+        int legNepszerubbBejegyzesLikeokSzama = bejegyzesLista.get(0).getLikeok();
+
+        for (int i = 1; i < bejegyzesLista.size(); i++) {
+            if(bejegyzesLista.get(i).getLikeok()>legNepszerubbBejegyzesLikeokSzama){
+                legNepszerubbBejegyzesLikeokSzama = bejegyzesLista.get(i).getLikeok();
+
+            }
+        }
+        System.out.println("A legnépszerűbb bejegyzés likeainak a száma: "+legNepszerubbBejegyzesLikeokSzama);
+
+
+
+
     }
     public static void FajlBeOlvas(String fajlNev){
         try {
