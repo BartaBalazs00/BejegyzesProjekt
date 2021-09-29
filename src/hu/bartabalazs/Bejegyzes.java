@@ -1,20 +1,21 @@
 package hu.bartabalazs;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Bejegyzes {
     private String szerzo;
     private String tartalom;
     private int likeok;
-    private LocalDate letrejott;
-    private LocalDate szerkesztve;
+    private LocalDateTime letrejott;
+    private LocalDateTime szerkesztve;
 
     public Bejegyzes(String szerzo, String tartalom) {
         this.szerzo = szerzo;
         this.tartalom = tartalom;
         this.likeok = 0;
-        letrejott = LocalDate.now();
-        szerkesztve = LocalDate.now();
+        letrejott = LocalDateTime.now();
+        szerkesztve = LocalDateTime.now();
     }
 
     public String getSzerzo() {
@@ -26,7 +27,7 @@ public class Bejegyzes {
     }
 
     public void setTartalom(String tartalom) {
-        this.szerkesztve = LocalDate.now();
+        this.szerkesztve = LocalDateTime.now();
         this.tartalom = tartalom;
     }
 
@@ -34,15 +35,22 @@ public class Bejegyzes {
         return likeok;
     }
 
-    public LocalDate getLetrejott() {
+    public LocalDateTime getLetrejott() {
         return letrejott;
     }
 
-    public LocalDate getSzerkesztve() {
+    public LocalDateTime getSzerkesztve() {
         return szerkesztve;
     }
 
-    public void like(){
+    public void like() {
         this.likeok++;
+    }
+
+    @Override
+    public String toString() {
+        return ""+this.szerzo+ " - "+ this.likeok+" - "+ this.letrejott+
+                "\nSzerkesztve: "+this.szerkesztve+
+                "\n"+this.tartalom;
     }
 }
