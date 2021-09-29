@@ -1,19 +1,14 @@
 package hu.bartabalazs;
 
 import javax.xml.stream.util.StreamReaderDelegate;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
 
     static List<Bejegyzes> bejegyzesLista = new ArrayList<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 
         Random random = new Random();
 
@@ -98,8 +93,23 @@ public class Main {
         System.out.println(kevesebbMintTizenotDb +" db bejegyzés kapott kevesebb mint 15 likeot");
 
 
-        
+        //D
+        System.out.println("\nD feladat");
 
+        Bejegyzes csereBejegyzes = new Bejegyzes("","");
+/*
+        Arrays.sort(bejegyzesLista, new Comparator<>());
+        for (int i = 0; i < bejegyzesLista.size()-1; i++) {
+            for (int j = i+1; j < bejegyzesLista.size(); j++) {
+                if(bejegyzesLista.get(j).getLikeok()>bejegyzesLista.get(i).getLikeok()){
+                    csereBejegyzes = bejegyzesLista.get(j);
+                    bejegyzesLista.get(j) = bejegyzesLista.get(i);
+                    bejegyzesLista.get(i) = csereBejegyzes;
+                }
+            }
+        }
+*/
+        FajlKiIras("bejegyzesek_rendezett.txt");
     }
     public static void FajlBeOlvas(String fajlNev){
         try {
@@ -118,6 +128,15 @@ public class Main {
         } catch (IOException io){
             System.out.println(io.getMessage());
         }
+    }
+
+    public static void FajlKiIras(String fajlNev) throws FileNotFoundException, UnsupportedEncodingException {
+        PrintWriter writer = new PrintWriter(fajlNev, "UTF-8");
+        for (Bejegyzes bejegyzes: bejegyzesLista
+             ) {
+            writer.println(bejegyzes);
+        }
+        writer.close();
     }
 
 }
