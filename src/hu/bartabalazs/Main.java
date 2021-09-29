@@ -44,6 +44,11 @@ public class Main {
             bejegyzesLista.get(random.nextInt(bejegyzesLista.size())).like();
         }
 
+        System.out.println("módosítsa a 2. bejegyzés tartalmát!");
+        System.out.println("Add meg a tartalmat!");
+        String tartalom = sc.next();
+        bejegyzesLista.get(1).setTartalom(tartalom);
+
         for (int i = 0; i < bejegyzesLista.size(); i++) {
             System.out.println(bejegyzesLista.get(i));
         }
