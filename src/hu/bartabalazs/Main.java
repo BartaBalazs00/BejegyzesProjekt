@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Random random = new Random();
 
 
         Bejegyzes b1 = new Bejegyzes("Barta Balázs", "tartalom");
@@ -33,6 +35,18 @@ public class Main {
             bejegyzesLista.add(bekertBejegyzes);
         }
 
+
+        FajlBeOlvas("bejegyzesek.txt");
+
+        int likeokKiosztasSzama = bejegyzesLista.size()*20;
+
+        for (int i = 0; i < likeokKiosztasSzama; i++) {
+            bejegyzesLista.get(random.nextInt(bejegyzesLista.size())).like();
+        }
+
+        for (int i = 0; i < bejegyzesLista.size(); i++) {
+            System.out.println(bejegyzesLista.get(i));
+        }
     }
     public static void FajlBeOlvas(String fajlNev){
         try {
@@ -52,4 +66,5 @@ public class Main {
             System.out.println(io.getMessage());
         }
     }
+
 }
